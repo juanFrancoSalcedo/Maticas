@@ -5,6 +5,9 @@ using UnityEngine;
 public class GridManger : MonoBehaviour
 {
 
+
+    //TODO singleton this;
+
     [SerializeField] private Quad prefabTile;
     Quad[,] quads;
     [SerializeField]  private int columns = 11;
@@ -12,14 +15,6 @@ public class GridManger : MonoBehaviour
 
     private int colOffset;
     private int rowOffset;
-
-
-    public int playerX = 0;
-    public int playerY = 0;
-
-    public int targetX = 0;
-    public int targetY = 0;
-
 
     void Start()
     {

@@ -5,51 +5,59 @@ using UnityEngine;
 public class CharacterController : MonoBehaviour
 {
 
+    public Constraints limits;
     private SpriteRenderer renderSprite;
     public Sprite xSprite;
     private Sprite ySprite;
+
     [SerializeField] private GridManger grid;
 
-    
+    public int originX= 0;
+    public int originY = 0;
+
+    public int targetX { get; set;}
+    public int targetY { get; set;}
+
     void Start()
     {
         renderSprite = GetComponent<SpriteRenderer>();
         ySprite = renderSprite.sprite;
-        transform.position = new Vector3(grid.playerX,grid.playerY,transform.position.z);
-    }
-
-    private void Update()
-    {
-
+        transform.position = new Vector3(originX,originY,transform.position.z);
     }
 
     public IEnumerator Move()
     {
-        while (transform.position != new Vector3(grid.targetX,grid.targetY,0))
+        while (transform.position != new Vector3(targetX,targetY,0))
         {
-            if (grid.targetX != (int)transform.position.x)
+            if (targetX != (int)transform.position.x)
             {
-                int dif = (grid.targetX > (int)transform.position.x) ? 1 : -1;
+                int dif = (targetX > (int)transform.position.x) ? 1 : -1;
 
                 renderSprite.sprite = xSprite;
                 renderSprite.flipX = (dif > 0) ? false : true;
                 transform.Translate(dif, 0, 0);
-
             }
-            else if (grid.targetY != (int)transform.position.y)
+            else if (targetY != (int)transform.position.y)
             {
-                    int dif = (grid.targetY > (int)transform.position.y) ? 1 : -1;
+                int dif = (targetY > (int)transform.position.y) ? 1 : -1;
 
-                    renderSprite.sprite = ySprite;
-                    renderSprite.flipY = (dif > 0) ? true : false;
-                    transform.Translate(0, dif, 0);
-
-
+                 renderSprite.sprite = ySprite;
+                 renderSprite.flipY = (dif > 0) ? true : false;
+                 transform.Translate(0, dif, 0);
             }
 
             yield return new WaitForSeconds(0.3f);
         }
     }
 
+}
+
+[System.Serializable]
+public struct Constraints
+{
+    public int lowerX;
+    public int upperX;
+    public int lowerY;
+    public int upperY;
 
 }
