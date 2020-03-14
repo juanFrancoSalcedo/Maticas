@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using System;
 
 public class CharacterController : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class CharacterController : MonoBehaviour
     private SpriteRenderer renderSprite;
     public Sprite xSprite;
     private Sprite ySprite;
+
+    public event Action<Vector3> OnArrived;
 
     [SerializeField] private GridManger grid;
 
@@ -45,11 +48,11 @@ public class CharacterController : MonoBehaviour
                  renderSprite.flipY = (dif > 0) ? true : false;
                  transform.Translate(0, dif, 0);
             }
-
             yield return new WaitForSeconds(0.3f);
-        }
-    }
 
+        }
+        OnArrived?.Invoke(transform.position);
+    }
 }
 
 [System.Serializable]

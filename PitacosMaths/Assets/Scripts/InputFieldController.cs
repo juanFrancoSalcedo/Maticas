@@ -6,28 +6,20 @@ using TMPro;
 
 public class InputFieldController : MonoBehaviour
 {
-    [SerializeField] private TMP_InputField xInputField;
-    [SerializeField] private TMP_InputField yInputField;
+    public TMP_InputField xInputField;
+    public TMP_InputField yInputField;
     [SerializeField] private Button startPathButton;
     public CharacterController currentChar;
 
     [SerializeField] private GridManger grid;
-    [SerializeField] private CharacterController character;
 
     void Start()
     {
-      //  xInputField.text = ""+0 ;
-     //   yInputField.text = ""+0 ;
-
-     //   InsertCoordinates();
-
         startPathButton.onClick.AddListener(StartPath);
         startPathButton.onClick.AddListener(InsertCoordinates);
 
         xInputField.onEndEdit.AddListener(InsertCoordinates);
         yInputField.onEndEdit.AddListener(InsertCoordinates);
-
-
     }
 
     private void InsertCoordinates()
@@ -40,10 +32,7 @@ public class InputFieldController : MonoBehaviour
         
         currentChar.targetX = XLimitTargets(xCoordinate);
         currentChar.targetY = YLimitTargets(yCoordinate);
-
-
-  //      xInputField.text = "" + XLimitTargets(xCoordinate);
-    //    yInputField.text = "" + YLimitTargets(yCoordinate);
+        
     }
 
     private void InsertCoordinates(string valueNull)
@@ -61,12 +50,17 @@ public class InputFieldController : MonoBehaviour
 
     public void StartPath()
     {
-        character.StartCoroutine(character.Move());
-
-        startPathButton.gameObject.SetActive(false);
-        xInputField.gameObject.SetActive(false);
-        yInputField.gameObject.SetActive(false);
+        currentChar.StartCoroutine(currentChar.Move());
+        ActiveButtons(false);
     }
+
+    public void ActiveButtons(bool enabled)
+    {
+        startPathButton.gameObject.SetActive(enabled);
+        xInputField.gameObject.SetActive(enabled);
+        yInputField.gameObject.SetActive(enabled);
+    }
+
 
     public int XLimitTargets(int coordinate)
     {
