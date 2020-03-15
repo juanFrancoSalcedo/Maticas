@@ -10,8 +10,9 @@ public class TurnsManager : MonoBehaviour
     [SerializeField] private InputFieldController inputContol;
     public CharacterController player1;
     public  CharacterController player2;
-    public event System.Action<CharacterController> OnPlayerSelected;
+    [SerializeField] private Transform shadowElement;
 
+    public event System.Action<CharacterController> OnPlayerSelected;
     private float bufferTime;
 
     private void Start()
@@ -41,11 +42,13 @@ public class TurnsManager : MonoBehaviour
             inputContol.currentChar = player1;
         }
 
+        HideHalfPosition();
         inputContol.currentChar.gameObject.SetActive(true);
         inputContol.ActiveButtons(true);
         inputContol.xInputField.text = "0";
         inputContol.yInputField.text = "0";
         OnPlayerSelected?.Invoke(inputContol.currentChar);
+
     }
 
     private void ShowTime(string timerString, float timeArg)
@@ -56,6 +59,13 @@ public class TurnsManager : MonoBehaviour
         {
             timer.stopTimer = true ;
         }
+    }
+
+    private void HideHalfPosition( )
+    {
+        Vector3 futurePos =   shadowElement.transform.position;
+        futurePos.x = -futurePos.x;
+        shadowElement.transform.position = futurePos;
 
     }
 }
