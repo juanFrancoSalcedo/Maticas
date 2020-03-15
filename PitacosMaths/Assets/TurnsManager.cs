@@ -10,7 +10,7 @@ public class TurnsManager : MonoBehaviour
     [SerializeField] private InputFieldController inputContol;
     public CharacterController player1;
     public  CharacterController player2;
-    [SerializeField] private Transform shadowElement;
+    [SerializeField] private AnimationController shadowElement;
 
     public event System.Action<CharacterController> OnPlayerSelected;
     private float bufferTime;
@@ -63,9 +63,11 @@ public class TurnsManager : MonoBehaviour
 
     private void HideHalfPosition( )
     {
+
         Vector3 futurePos =   shadowElement.transform.position;
         futurePos.x = -futurePos.x;
-        shadowElement.transform.position = futurePos;
+        shadowElement.targetPosition = futurePos ;
+        shadowElement.ActiveAnimation();
 
     }
 }
