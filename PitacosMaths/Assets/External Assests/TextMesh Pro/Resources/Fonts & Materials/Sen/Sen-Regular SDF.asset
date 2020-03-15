@@ -12,9 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: Sen-Regular SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: -1595842498
   material: {fileID: 3031137850975846921}
-  materialHashCode: 0
+  materialHashCode: -1854752011
   m_Version: 1.1.0
   m_SourceFontFileGUID: 1f80b73376992e24c80fa793863104ce
   m_SourceFontFile_EditorRef: {fileID: 0}
