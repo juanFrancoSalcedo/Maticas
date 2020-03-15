@@ -13,13 +13,14 @@ public class AnimationUIController : MonoBehaviour
     public float timeAnimation;
     public float delay;
     public float coldTime;
-    public AnimationCurve animationCurve;
+    public LeanTweenType animationCurve;
     public bool playOnAwake;
     public TypeAnimation animationType;
 
     public enum TypeAnimation
     {
         Move,
+        MoveFadeOut,
         MoveReturnOrigin
     }
 
@@ -29,6 +30,7 @@ public class AnimationUIController : MonoBehaviour
 
     private void OnEnable()
     {
+        rectTransform = GetComponent<RectTransform>();
         originPosition = transform.localPosition;
         OnCompleted += CallBacks;
         
@@ -53,6 +55,14 @@ public class AnimationUIController : MonoBehaviour
                 sequence.append(LeanTween.moveLocal(gameObject, targetPosition, timeAnimation).setEase(animationCurve).setDelay(delay));
                 sequence.append(coldTime); 
                 sequence.append(LeanTween.moveLocal(gameObject, originPosition, timeAnimation).setEase(animationCurve).setOnComplete(CallBacks));
+                break;
+
+            case TypeAnimation.MoveFadeOut:
+
+                sequence.append(LeanTween.moveLocal(gameObject, targetPosition, timeAnimation).setEase(animationCurve).setDelay(delay));
+                //sequence.append(LeanTween.colorText(rectTransform,0,timeAnimation).setEase(animationCurve);
+                //sequence.append();
+
                 break;
         }
     }
