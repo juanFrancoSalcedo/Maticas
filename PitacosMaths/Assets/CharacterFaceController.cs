@@ -7,6 +7,7 @@ public class CharacterFaceController : MonoBehaviour
 {
     public Emotion myEmotions;
     [SerializeField] private MisionController misionController;
+    [SerializeField] private CharacterController characterOwner;
     private Image image;
     private Animator animationControl;
 
@@ -17,8 +18,13 @@ public class CharacterFaceController : MonoBehaviour
         misionController.OnPlayerMisionFinished += ChangeEmotion;
     }
 
-    public void ChangeEmotion(TypeEmotion emo)
+    public void ChangeEmotion(TypeEmotion emo, CharacterController character)
     {
+        if (!ReferenceEquals(character, characterOwner))
+        {
+            return;
+        }
+
         switch (emo)
         {
             case TypeEmotion.Basic:
@@ -44,7 +50,7 @@ public class CharacterFaceController : MonoBehaviour
 
     private void RestoreBasicImage()
     {
-        ChangeEmotion(TypeEmotion.Basic);
+        ChangeEmotion(TypeEmotion.Basic,characterOwner);
     }
 
 }

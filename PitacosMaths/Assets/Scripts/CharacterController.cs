@@ -11,7 +11,7 @@ public class CharacterController : MonoBehaviour
     public Sprite xSprite;
     private Sprite ySprite;
 
-    public event Action<Vector3> OnArrived;
+    public event Action<CharacterController> OnArrived;
 
     [SerializeField] private GridManger grid;
 
@@ -25,7 +25,7 @@ public class CharacterController : MonoBehaviour
     {
         renderSprite = GetComponent<SpriteRenderer>();
         ySprite = renderSprite.sprite;
-        transform.position = new Vector3(originX,originY,transform.position.z);
+        transform.position = new Vector3(grid.transform.position.x + originX, grid.transform.position.y +originY, transform.position.z);
     }
 
     public IEnumerator Move()
@@ -51,7 +51,7 @@ public class CharacterController : MonoBehaviour
             yield return new WaitForSeconds(0.3f);
 
         }
-        OnArrived?.Invoke(transform.position);
+        OnArrived?.Invoke(this);
     }
 }
 

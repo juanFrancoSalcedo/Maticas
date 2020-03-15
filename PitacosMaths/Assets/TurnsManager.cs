@@ -29,7 +29,7 @@ public class TurnsManager : MonoBehaviour
         timer.OnCalculatedTimeString += ShowTime;
     }
 
-    private void SwitchPlayer(Vector3 arg)
+    private void SwitchPlayer(CharacterController _character)
     {
         inputContol.currentChar.gameObject.SetActive(false);
 
