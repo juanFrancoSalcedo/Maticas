@@ -732,75 +732,7 @@ MonoBehaviour:
   timeAnimation: 1
   delay: 0
   coldTime: 1
-  animationCurve:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    - serializedVersion: 3
-      time: 0.089468434
-      value: 0.028460285
-      inSlope: -0.3358009
-      outSlope: -0.3358009
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.23137613
-      value: -0.0028765425
-      inSlope: 1.0188782
-      outSlope: 1.0188782
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.6738468
-      value: 1.0410423
-      inSlope: 1.3488097
-      outSlope: 1.3488097
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.8149368
-      value: 0.9540486
-      inSlope: 1.0997313
-      outSlope: 1.0997313
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 0.87332994
-      value: 1.027576
-      inSlope: 0.70112586
-      outSlope: 0.70112586
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
-    - serializedVersion: 3
-      time: 1
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  animationCurve: 0
   playOnAwake: 0
   animationType: 1
   OnCompletedCallBack:
@@ -1305,7 +1237,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.07159184, y: 0.060832072}
   m_AnchorMax: {x: 0.27880558, y: 0.1758168}
-  m_AnchoredPosition: {x: 0.34985352, y: 0.2998047}
+  m_AnchoredPosition: {x: 0.35009766, y: 0.2998047}
   m_SizeDelta: {x: 1.3000335, y: 0.000036597252}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &944544266
@@ -1652,12 +1584,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0dbf6c8fe8e170a459e14c6800582be8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5f7fa9a7940a64e79b5a42d9f661d42c, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 5, y: 5}
+  m_Size: {x: 10, y: 10}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -2398,12 +2330,7 @@ MonoBehaviour:
   timeAnimation: 0
   delay: 0
   coldTime: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
+  animationCurve: 0
   playOnAwake: 0
   animationType: 0
   OnCompletedCallBack:
