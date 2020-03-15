@@ -4,10 +4,9 @@ using UnityEngine;
 
 public class MisionController : MonoBehaviour
 {
-
-
     public TurnsManager turnsManager;
     [SerializeField] private GameObject mision;
+    [SerializeField] private AnimationUIController popUpWin;
 
     private void OnEnable()
     {
@@ -29,7 +28,9 @@ public class MisionController : MonoBehaviour
     {
         if (mision.transform.position == playerPosit)
         {
-            print("guadalupana");
+            popUpWin.ActiveAnimation();
+
+            //print("guadalupana");
         }
     }
 }

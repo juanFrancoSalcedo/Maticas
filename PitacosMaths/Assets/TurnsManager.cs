@@ -63,12 +63,10 @@ public class TurnsManager : MonoBehaviour
 
     private void HideHalfPosition( )
     {
-
         Vector3 futurePos =   shadowElement.transform.position;
         futurePos.x = -futurePos.x;
         shadowElement.targetPosition = futurePos ;
         shadowElement.ActiveAnimation();
-
     }
 }
 
