@@ -27,9 +27,9 @@ public class GridManger : MonoBehaviour
         {
             for (int row = 0; row < rows; row++)
             {
-                quads[col, row] = Instantiate(prefabTile, new Vector2(col + colOffset, row + rowOffset),Quaternion.identity,transform);
-                quads[col, row].xPos = (int)quads[col, row].transform.position.x;
-                quads[col, row].yPos = (int)quads[col, row].transform.position.y;
+                quads[col, row] = Instantiate(prefabTile, new Vector2(transform.position.x + col + colOffset, transform.position.y+ row + rowOffset),Quaternion.identity,transform);
+                quads[col, row].xPos = (int)(quads[col, row].transform.position.x + transform.position.x);
+                quads[col, row].yPos = (int)(quads[col, row].transform.position.y + transform.position.y);
             }
         }
     }

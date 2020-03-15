@@ -61,34 +61,33 @@ public class InputFieldController : MonoBehaviour
         yInputField.gameObject.SetActive(enabled);
     }
 
-
     public int XLimitTargets(int coordinate)
     {
-        if (coordinate <= currentChar.limits.lowerX)
+        if (coordinate <= currentChar.limits.lowerX + (int)grid.transform.position.x)
         {
-            return currentChar.limits.lowerX;
+            return currentChar.limits.lowerX + (int)grid.transform.position.x; ;
         }
 
-        if (coordinate >= currentChar.limits.upperX)
+        if (coordinate >= currentChar.limits.upperX + (int)grid.transform.position.x)
         {
-            return currentChar.limits.upperX;
+            return currentChar.limits.upperX + (int)grid.transform.position.x;
         }
-        return coordinate;
+        return coordinate+ (int)grid.transform.position.x;
     }
 
     public int YLimitTargets(int coordinate)
     {
-        if (coordinate<= currentChar.limits.lowerY)
+        if (coordinate<= currentChar.limits.lowerY + (int)grid.transform.position.y)
         {
-            return currentChar.limits.lowerY;
+            return currentChar.limits.lowerY + (int)grid.transform.position.y;
         }
 
-        if (coordinate >= currentChar.limits.upperY)
+        if (coordinate >= currentChar.limits.upperY+(int)grid.transform.position.y)
         {
-            return currentChar.limits.upperY;
+            return currentChar.limits.upperY + (int)grid.transform.position.y ;
         }
 
-        return coordinate;
+        return coordinate + (int)grid.transform.position.y ;
     }
 
 }
