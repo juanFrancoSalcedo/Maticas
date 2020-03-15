@@ -1895,8 +1895,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 930206bd649614d469b182a8061ac5b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  turnsManager: {fileID: 0}
-  mision: {fileID: 0}
+  turnsManager: {fileID: 1610019976}
+  mision: {fileID: 629965320}
 --- !u!4 &1432168986
 Transform:
   m_ObjectHideFlags: 0
