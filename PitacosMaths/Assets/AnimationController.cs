@@ -41,8 +41,7 @@ public class AnimationController : MonoBehaviour
     public void ActiveAnimation()
     {
         var sequence = LeanTween.sequence();
-
-
+        
         switch (animationType)
         {
             case TypeAnimation.Move:

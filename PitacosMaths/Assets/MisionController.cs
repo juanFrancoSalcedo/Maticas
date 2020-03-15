@@ -7,6 +7,7 @@ public class MisionController : MonoBehaviour
     public TurnsManager turnsManager;
     [SerializeField] private GameObject mision;
     [SerializeField] private AnimationUIController popUpWin;
+    public event System.Action<TypeEmotion> OnPlayerMisionFinished;
 
     private void OnEnable()
     {
@@ -29,8 +30,14 @@ public class MisionController : MonoBehaviour
         if (mision.transform.position == playerPosit)
         {
             popUpWin.ActiveAnimation();
-
-            //print("guadalupana");
+            OnPlayerMisionFinished?.Invoke(TypeEmotion.Happy);
         }
+        else
+        {
+            OnPlayerMisionFinished?.Invoke(TypeEmotion.Sad);
+        }
+
+
     }
 }
+
