@@ -61,7 +61,6 @@ public class AnimationTextController : MonoBehaviour
                 sequence.Append(textComponent.DOFade(0, timeAnimation).SetEase(animationCurve).OnComplete(CallBacks));
                 break;
 
-
         }
     }
 
