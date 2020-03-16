@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
-using DentedPixel;
+using DG.Tweening;
 
 public class AnimationController : MonoBehaviour
 {
-    private RectTransform rectTransform;
     public Vector3 targetPosition;
     private Vector3 originPosition;
     public float timeAnimation;
@@ -17,19 +16,14 @@ public class AnimationController : MonoBehaviour
     public bool playOnAwake;
     public TypeAnimation animationType;
 
-    public enum TypeAnimation
-    {
-        Move,
-        MoveReturnOrigin
-    }
-
+  
     public UnityEvent OnCompletedCallBack;
     public event System.Action OnCompleted;
     
 
     private void OnEnable()
     {
-        originPosition = transform.localPosition;
+        originPosition = transform.position;
         OnCompleted += CallBacks;
         
         if (playOnAwake)
@@ -40,18 +34,20 @@ public class AnimationController : MonoBehaviour
     
     public void ActiveAnimation()
     {
-        var sequence = LeanTween.sequence();
+        Sequence sequence = DOTween.Sequence();
         
         switch (animationType)
         {
             case TypeAnimation.Move:
-                LeanTween.move(gameObject, targetPosition, timeAnimation).setEase(animationCurve).setDelay(delay).setOnComplete(CallBacks);
+                transform.DOMove(targetPosition, timeAnimation, false).SetEase(animationCurve).SetDelay(delay).OnComplete(CallBacks);
                 break;
 
             case TypeAnimation.MoveReturnOrigin:
-                sequence.append(LeanTween.moveLocal(gameObject, targetPosition, timeAnimation).setEase(animationCurve).setDelay(delay));
-                sequence.append(coldTime); 
-                sequence.append(LeanTween.moveLocal(gameObject, originPosition, timeAnimation).setEase(animationCurve).setOnComplete(CallBacks));
+
+                sequence.Append(transform.DOMove(targetPosition, timeAnimation, false).SetEase(animationCurve).SetDelay(delay));
+                sequence.AppendInterval(coldTime);
+                sequence.Append(transform.DOMove(targetPosition, timeAnimation, false).SetEase(animationCurve));
+
                 break;
         }
     }

@@ -4,10 +4,12 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Events;
 using DG.Tweening;
+using TMPro;
 
-public class AnimationUIController : MonoBehaviour
+public class AnimationTextController : MonoBehaviour
 {
     private RectTransform rectTransform;
+    private TextMeshProUGUI textComponent;
     public Vector3 targetPosition;
     private Vector3 originPosition;
     public float timeAnimation;
@@ -24,6 +26,7 @@ public class AnimationUIController : MonoBehaviour
 
     private void OnEnable()
     {
+        textComponent = GetComponent<TextMeshProUGUI>();
         rectTransform = GetComponent<RectTransform>();
         originPosition = rectTransform.anchoredPosition;
         OnCompleted += CallBacks;
@@ -47,8 +50,17 @@ public class AnimationUIController : MonoBehaviour
             case TypeAnimation.MoveReturnOrigin:
                 sequence.Append(rectTransform.DOAnchorPos(targetPosition, timeAnimation,false).SetEase(animationCurve).SetDelay(delay));
                 sequence.AppendInterval(coldTime);
-                sequence.Append(rectTransform.DOAnchorPos(originPosition,timeAnimation,false).SetEase(animationCurve));
+                sequence.Append(rectTransform.DOAnchorPos(originPosition,timeAnimation,false).SetEase(animationCurve).OnComplete(CallBacks));
                 break;
+
+            case TypeAnimation.MoveFadeOut:
+
+                sequence.Append(textComponent.DOFade(1,0).SetDelay(delay));
+                sequence.Append(rectTransform.DOAnchorPos(targetPosition, timeAnimation, false).SetEase(animationCurve));
+                sequence.AppendInterval(coldTime);
+                sequence.Append(textComponent.DOFade(0, timeAnimation).SetEase(animationCurve).OnComplete(CallBacks));
+                break;
+
 
         }
     }
@@ -64,11 +76,4 @@ public class AnimationUIController : MonoBehaviour
     {
         coldTime = _time;
     }
-}
-
-public enum TypeAnimation
-{
-    Move,
-    MoveReturnOrigin,
-    MoveFadeOut,
 }

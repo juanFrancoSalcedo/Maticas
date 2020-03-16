@@ -353,9 +353,9 @@ RectTransform:
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0.34655556, y: 1}
-  m_AnchoredPosition: {x: 0.5, y: -5.000122}
-  m_SizeDelta: {x: 1, y: -10}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 250, y: 250.00006}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &423927623
 Animator:
@@ -675,10 +675,10 @@ RectTransform:
   m_Father: {fileID: 1308054198}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1194, y: 200}
-  m_SizeDelta: {x: -650.9, y: -548.4}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 2000, y: 200}
+  m_SizeDelta: {x: 789.1, y: 159.79999}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &670869032
 MonoBehaviour:
@@ -732,14 +732,9 @@ MonoBehaviour:
   timeAnimation: 1
   delay: 0
   coldTime: 1
-  animationCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  playOnAwake: 0
-  animationType: 1
+  animationCurve: 9
+  playOnAwake: 1
+  animationType: 2
   OnCompletedCallBack:
     m_PersistentCalls:
       m_Calls: []
@@ -1589,8 +1584,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 63968c4fb3b2d384bad72d6b71a0b7e1, type: 3}
-  m_Type: 0
+  m_Sprite: {fileID: 21300000, guid: c2b3d099252d45140ab4738f0c31b7a2, type: 3}
+  m_Type: 1
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -1619,7 +1614,7 @@ GameObject:
   - component: {fileID: 1177723901}
   - component: {fileID: 1177723903}
   m_Layer: 0
-  m_Name: FadeOut
+  m_Name: Shadow
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1664,8 +1659,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: f3245e19b239d964ea0ced8599cc9971, type: 3}
-  m_Color: {r: 0.8000001, g: 0.8000001, b: 0.8000001, a: 1}
+  m_Sprite: {fileID: 21300000, guid: c2b3d099252d45140ab4738f0c31b7a2, type: 3}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -1683,8 +1678,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1177723900}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.13, y: 0.008, z: 0}
-  m_LocalScale: {x: 1.0317317, y: 1.3294235, z: 1}
+  m_LocalPosition: {x: 3.8, y: -0.3, z: 0}
+  m_LocalScale: {x: 1.3, y: 5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 10
@@ -2159,7 +2154,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 29038b0eb48d8f94aad2bfede258c0a9, type: 3}
   m_Color: {r: 0.5817366, g: 1, b: 0.24528301, a: 1}
   m_FlipX: 0
@@ -2369,7 +2364,7 @@ GameObject:
   - component: {fileID: 1415554099}
   - component: {fileID: 1415554098}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Mal Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2391,7 +2386,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -9.2, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 980.4, y: 646.4}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1415554098
@@ -2403,21 +2398,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 1415554096}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 39d994f3e89e7fb4bbd5d5ca41d47e8a, type: 3}
+  m_Script: {fileID: 11500000, guid: 57473253c431c2544941b2cd5df9c822, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetPosition: {x: 0, y: 0, z: 0}
-  timeAnimation: 0
-  delay: 0
+  targetPosition: {x: 0, y: 400, z: 0}
+  timeAnimation: 1
+  delay: 1
   coldTime: 0
-  animationCurve:
-    serializedVersion: 2
-    m_Curve: []
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  playOnAwake: 0
-  animationType: 0
+  animationCurve: 16
+  playOnAwake: 1
+  animationType: 2
   OnCompletedCallBack:
     m_PersistentCalls:
       m_Calls: []
@@ -2449,8 +2439,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4281019391
-  m_fontColor: {r: 1, g: 0.16981131, b: 0.16981131, a: 1}
+    rgba: 2829311
+  m_fontColor: {r: 1, g: 0.16981131, b: 0.16981131, a: 0}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3057,7 +3047,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 2
   m_Sprite: {fileID: 21300000, guid: 29038b0eb48d8f94aad2bfede258c0a9, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -3233,10 +3223,10 @@ RectTransform:
   m_Father: {fileID: 1968295729}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.64655554, y: 0}
-  m_AnchorMax: {x: 1, y: 0.9666824}
-  m_AnchoredPosition: {x: 4.5, y: 3.499878}
-  m_SizeDelta: {x: -9, y: 7}
+  m_AnchorMin: {x: 1, y: 0}
+  m_AnchorMax: {x: 1, y: 0}
+  m_AnchoredPosition: {x: -250, y: 250}
+  m_SizeDelta: {x: 500, y: 500}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1938938012
 MonoBehaviour:
