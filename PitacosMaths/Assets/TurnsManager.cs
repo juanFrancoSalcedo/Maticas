@@ -44,11 +44,9 @@ public class TurnsManager : MonoBehaviour
 
         HideHalfPosition();
         inputContol.currentChar.gameObject.SetActive(true);
-        inputContol.ActiveButtons(true);
         inputContol.xInputField.text = "0";
         inputContol.yInputField.text = "0";
         OnPlayerSelected?.Invoke(inputContol.currentChar);
-
     }
 
     private void ShowTime(string timerString, float timeArg)

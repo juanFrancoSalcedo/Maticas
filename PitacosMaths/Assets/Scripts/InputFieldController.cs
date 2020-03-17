@@ -51,15 +51,15 @@ public class InputFieldController : MonoBehaviour
     public void StartPath()
     {
         currentChar.StartCoroutine(currentChar.Move());
-        ActiveButtons(false);
+    //    ActiveButtons(false);
     }
 
-    public void ActiveButtons(bool enabled)
-    {
-        startPathButton.gameObject.SetActive(enabled);
-        xInputField.gameObject.SetActive(enabled);
-        yInputField.gameObject.SetActive(enabled);
-    }
+    //public void ActiveButtons(bool enabled)
+    //{
+    //    startPathButton.gameObject.SetActive(enabled);
+    //    xInputField.gameObject.SetActive(enabled);
+    //    yInputField.gameObject.SetActive(enabled);
+    //}
 
     public int XLimitTargets(int coordinate)
     {
