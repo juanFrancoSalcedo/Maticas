@@ -6,9 +6,12 @@ public class MisionController : MonoBehaviour
 {
     public TurnsManager turnsManager;
     [SerializeField] private GameObject mision;
-    [SerializeField] private AnimationUIController popUpWin;
     [SerializeField] private Transform gridPosition;
     public event System.Action<TypeEmotion,CharacterController> OnPlayerMisionFinished;
+
+    [Header("~~~~~~~~~~ States Outputs ~~~~~~~~~~~~")]
+    [SerializeField] private AnimationUIController popUpWin;
+    [SerializeField] private AnimationTextController failText;
 
     private void OnEnable()
     {
@@ -32,9 +35,12 @@ public class MisionController : MonoBehaviour
         {
             popUpWin.ActiveAnimation();
             OnPlayerMisionFinished?.Invoke(TypeEmotion.Happy,playerPosit);
+            
+
         }
         else
         {
+            failText.ActiveAnimation();
             OnPlayerMisionFinished?.Invoke(TypeEmotion.Sad, playerPosit);
         }
     }

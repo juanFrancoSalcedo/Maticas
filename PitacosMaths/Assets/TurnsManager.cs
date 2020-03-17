@@ -6,7 +6,7 @@ using TMPro;
 public class TurnsManager : MonoBehaviour
 {
     [SerializeField] private TextMeshProUGUI textTimer;
-    [SerializeField] private Timer timer;
+    public Timer timer;
     [SerializeField] private InputFieldController inputContol;
     public CharacterController player1;
     public  CharacterController player2;

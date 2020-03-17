@@ -42,7 +42,6 @@ public class CharacterFaceController : MonoBehaviour
                 image.sprite = myEmotions.happyImage;
                 animationControl.SetTrigger("Happy");
                 Invoke("RestoreBasicImage", 1.5f);
-                print("Bien mi brodi");
 
                 break;
         }
